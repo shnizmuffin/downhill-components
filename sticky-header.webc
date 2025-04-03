@@ -1,0 +1,47 @@
+<sticky-header
+  webc:root
+  class="sticky top-[-0.5px] z-50"
+  role="banner"
+>
+  <slot></slot>
+</sticky-header>
+<!--- <style>
+  @reference "../../assets/css/main.css";
+  .ux-stuck { @apply border-8 border-b-amber-400 }
+</style> --->
+<script>
+  // Create a class for the element
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      // Always call super first in constructor
+      super();
+    }
+
+    connectedCallback() {
+      console.log("Custom element added to page.");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          this.classList.toggle('ux-stuck', entries[0].intersectionRatio < 1);
+        },
+        { threshold: 1 },
+      ); // Observe when 100% of the image is visible
+
+      observer.observe(this);
+    }
+    // in case we need these
+    disconnectedCallback() {
+      console.log("Custom element removed from page.");
+    }
+
+    adoptedCallback() {
+      console.log("Custom element moved to new page.");
+
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      console.log(`Attribute ${name} has changed.`);
+    }
+  }
+
+  customElements.define('sticky-header', StickyHeader);
+</script>
