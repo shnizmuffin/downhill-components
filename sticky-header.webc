@@ -1,6 +1,6 @@
 <sticky-header
   webc:root
-  class="sticky top-[-0.5px]"
+  class="sticky top-[-0.5173px]"
   role="banner"
 >
   <slot></slot>
