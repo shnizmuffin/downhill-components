@@ -1,8 +1,4 @@
-<sticky-header
-  webc:root
-  class="sticky top-[-0.5173px]"
-  role="banner"
->
+<sticky-header webc:root class="sticky top-[-0.5173px]" role="banner">
   <slot></slot>
 </sticky-header>
 <!--- <style>
@@ -18,7 +14,7 @@
     }
 
     connectedCallback() {
-      console.log("Custom element added to page.");
+      console.log('Custom element added to page.');
       const observer = new IntersectionObserver(
         (entries) => {
           this.classList.toggle('is-stuck', entries[0].intersectionRatio < 1);
@@ -30,12 +26,11 @@
     }
     // in case we need these
     disconnectedCallback() {
-      console.log("Custom element removed from page.");
+      console.log('Custom element removed from page.');
     }
 
     adoptedCallback() {
-      console.log("Custom element moved to new page.");
-
+      console.log('Custom element moved to new page.');
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
